@@ -26,18 +26,18 @@ class RegistreScreenSecond extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              _buildTextField('First Name', 'Enter your first name'),
-              _buildTextField('Last Name', 'Enter your last name'),
-              _buildTextField('Email', 'Enter your email', isEmail: true),
+              _buildTextField('First Name*', 'Enter your first name'),
+              _buildTextField('Last Name*', 'Enter your last name'),
+              _buildTextField('Email*', 'Enter your email', isEmail: true),
               _buildPasswordField(),
               _buildDatePicker(context),
-              _buildDropdown('Gender', ['Male', 'Female']),
-              _buildTextField('Mobile Phone', 'Enter your phone number'),
+              _buildDropdown('Gender *', ['Male', 'Female']),
+              _buildTextField('Mobile Phone *', 'Enter your phone number'),
               _buildDropdown(
                   'Your Country', ['USA', 'Egypt', 'India', 'Canada']),
               _buildTextField('Address', 'Enter your address'),
-              _buildTextField('National ID', 'Enter your ID'),
-              _buildDropdown('Academic Degree', ['Bachelor', 'Master', 'PhD']),
+              _buildTextField('National ID *', 'Enter your ID'),
+              _buildDropdown('Academic Degree *', ['Bachelor', 'Master', 'PhD']),
               const SizedBox(height: 20),
               Center(
                 child: SizedBox(
@@ -101,7 +101,7 @@ class RegistreScreenSecond extends StatelessWidget {
       child: TextFormField(
         obscureText: true,
         decoration: const InputDecoration(
-          labelText: 'Password',
+          labelText: 'Password *',
           hintText: 'Enter your password',
           border: OutlineInputBorder(),
           suffixIcon: Icon(Icons.visibility),

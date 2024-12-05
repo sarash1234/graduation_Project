@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:graduation/core/routes/routes.dart';
 
 class LetsGetStartedView extends StatelessWidget {
+  const LetsGetStartedView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +13,7 @@ class LetsGetStartedView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/Logo.png'),
+            Image.asset('assets/images/Logo.png'),
             const SizedBox(height: 20),
             const Text(
               "Let's Get Started!",
@@ -22,7 +26,7 @@ class LetsGetStartedView extends StatelessWidget {
 
             // Subtitle
             const Text(
-              "Login to enjoy the features we have         provided and be well!",
+              "Login to enjoy the features we have provided and be well!",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -31,7 +35,9 @@ class LetsGetStartedView extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                context.go(Routes.login);
+              },
               child: Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 16),
@@ -52,7 +58,9 @@ class LetsGetStartedView extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                context.go(Routes.register1);
+              },
               child: Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 16),

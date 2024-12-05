@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:graduation/core/routes/routes.dart';
 
 class OnboardingViewSecond extends StatelessWidget {
+  const OnboardingViewSecond({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +17,7 @@ class OnboardingViewSecond extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: Image.asset(
-                    'assets/Calender.png',
+                    'assets/images/calendar.png',
                     height: 250,
                   ),
                 ),
@@ -38,7 +42,9 @@ class OnboardingViewSecond extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                   context.go(Routes.roleSelection);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
                   minimumSize: const Size(double.infinity, 50),
@@ -53,7 +59,9 @@ class OnboardingViewSecond extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.go(Routes.roleSelection);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 50),

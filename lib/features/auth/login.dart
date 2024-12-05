@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:graduation/core/routes/app_router.dart';
+import 'package:graduation/core/routes/routes.dart';
 
 class LoginScreen extends StatelessWidget {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 24),
-                  Image.asset('assets/Logo.png', height: 100),
+                  Image.asset('assets/images/Logo.png', height: 100),
                   const SizedBox(height: 16),
                   TextFormField(
                     controller: _emailController,
@@ -33,8 +38,7 @@ class LoginScreen extends StatelessWidget {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      errorText:
-                          'Please input valid email. This email is invalid.',
+                    
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -47,14 +51,16 @@ class LoginScreen extends StatelessWidget {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      suffixIcon: Icon(Icons.visibility_off),
+                      suffixIcon: const Icon(Icons.visibility_off),
                     ),
                   ),
                   const SizedBox(height: 16),
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.go(Routes.forgetPassword);
+                      },
                       child: const Text('Forgot Password?'),
                     ),
                   ),
@@ -65,10 +71,6 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {}
                       },
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white),
-                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.teal,
                         padding: const EdgeInsets.symmetric(vertical: 16),
@@ -76,11 +78,15 @@ class LoginScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
-                  Row(
-                    children: const [
+                  const Row(
+                    children: [
                       Expanded(
                         child: Divider(thickness: 1),
                       ),
@@ -98,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                     width: double.infinity,
                     child: OutlinedButton.icon(
                       onPressed: () {},
-                      icon: Image.asset('assets/Google.png', height: 20),
+                      icon: Image.asset('assets/images/Google.png', height: 20),
                       label: const Text('Continue with Google'),
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
@@ -115,7 +121,9 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       const Text("Don’t have an account?"),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go(Routes.register1);
+                        },
                         child: const Text('Sign Up'),
                       ),
                     ],

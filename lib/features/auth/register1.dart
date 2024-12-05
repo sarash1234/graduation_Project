@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class RegistreScreenFirst extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
+  RegistreScreenFirst({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,20 +21,33 @@ class RegistreScreenFirst extends StatelessWidget {
             children: [
               Center(
                 child: Image.asset(
-                  'assets/Logo.png',
+                  'assets/images/Logo.png',
                   height: 100,
                 ),
               ),
               const SizedBox(height: 20),
-              _buildTextField('First Name', 'Enter your first name'),
-              _buildTextField('Last Name', 'Enter your last name'),
-              _buildTextField('Email', 'Enter your email', isEmail: true),
+              _buildTextField('First Name *', 'Enter your first name'),
+              _buildTextField('Last Name *', 'Enter your last name'),
+              _buildTextField('Email *', 'Enter your email', isEmail: true),
               _buildPasswordField(),
               _buildDatePicker(context),
-              _buildDropdown('Gender', ['Male', 'Female']),
-              _buildTextField('Mobile Phone', 'Enter your phone number'),
+              _buildDropdown('Gender*', ['Male', 'Female']),
+              _buildTextField('Mobile Phone*', 'Enter your phone number'),
               _buildDropdown(
-                  'Your Country', ['USA', 'Egypt', 'India', 'Canada']),
+                  'Your Country',  [
+    'USA', 'Egypt', 'India', 'Canada', 'Germany', 'France', 'Italy', 
+    'UK', 'Australia', 'Brazil', 'Japan', 'China', 'South Korea', 
+    'Mexico', 'Russia', 'Spain', 'Turkey', 'South Africa', 'Argentina', 
+    'Saudi Arabia', 'Indonesia', 'Nigeria', 'Vietnam', 'Thailand', 
+    'Pakistan', 'Malaysia', 'Singapore', 'Philippines', 'United Arab Emirates', 
+    'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Lebanon', 'Iraq', 'Syria', 
+    'Tunisia', 'Algeria', 'Morocco', 'Kenya', 'Ethiopia', 'Chile', 
+    'Peru', 'Colombia', 'Uruguay', 'New Zealand', 'Poland', 'Ukraine', 
+    'Romania', 'Sweden', 'Norway', 'Finland', 'Denmark', 'Switzerland', 
+    'Netherlands', 'Belgium', 'Austria', 'Greece', 'Portugal', 'Czech Republic',
+    'Hungary', 'Slovakia', 'Croatia', 'Slovenia', 'Bulgaria', 'Serbia', 
+    'Macedonia', 'Montenegro', 'Albania', 'Georgia', 'Armenia', 'Kazakhstan'
+  ]),
               _buildTextField('Address', 'Enter your address'),
               const SizedBox(height: 20),
               Center(
@@ -47,16 +62,16 @@ class RegistreScreenFirst extends StatelessWidget {
                         );
                       }
                     },
-                    child: const Text(
-                      'Register',
-                      style: TextStyle(color: Colors.white),
-                    ),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       backgroundColor: Colors.teal,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
+                    ),
+                    child: const Text(
+                      'Register',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
@@ -97,7 +112,7 @@ class RegistreScreenFirst extends StatelessWidget {
       child: TextFormField(
         obscureText: true,
         decoration: const InputDecoration(
-          labelText: 'Password',
+          labelText: 'Password *',
           hintText: 'Enter your password',
           border: OutlineInputBorder(),
           suffixIcon: Icon(Icons.visibility),

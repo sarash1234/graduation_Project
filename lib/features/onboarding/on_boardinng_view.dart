@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:graduation/core/routes/app_router.dart';
+import 'package:graduation/core/routes/routes.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({
@@ -17,7 +20,7 @@ class OnboardingView extends StatelessWidget {
               const SizedBox(height: 20),
               Expanded(
                 child: Image.asset(
-                  'assets/doctor.png',
+                  'assets/images/doctor.png',
                   fit: BoxFit.contain,
                 ),
               ),
@@ -42,7 +45,9 @@ class OnboardingView extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.go(Routes.onboarding2);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
                   shape: RoundedRectangleBorder(
@@ -53,7 +58,7 @@ class OnboardingView extends StatelessWidget {
                 child: const Center(
                   child: Text(
                     'Next',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                     ),
@@ -62,7 +67,9 @@ class OnboardingView extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.go(Routes.roleSelection);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   side: const BorderSide(color: Colors.teal, width: 2),

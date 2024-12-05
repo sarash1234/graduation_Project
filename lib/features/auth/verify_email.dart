@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'dart:async';
 
+import 'package:graduation/core/routes/app_router.dart';
+import 'package:graduation/core/routes/routes.dart';
+
 class VerificationCodeScreen extends StatefulWidget {
+  const VerificationCodeScreen({super.key});
+
   @override
   _VerificationCodeScreenState createState() => _VerificationCodeScreenState();
 }
@@ -56,6 +62,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
   }
 
   void _submitCode() {
+    context.go(Routes.resetPassword);
     String code = _controllers.map((controller) => controller.text).join();
     if (code.length < 4) {
       ScaffoldMessenger.of(context).showSnackBar(

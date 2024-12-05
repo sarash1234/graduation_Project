@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:graduation/core/routes/routes.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({
@@ -7,13 +9,18 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 5),(){
+      // ignore: use_build_context_synchronously
+      context.go(Routes.onboarding);
+
+    });
     return Scaffold(
       body: Stack(
         children: [
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/Lines.png'),
+                image: AssetImage('assets/images/Group.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -24,7 +31,7 @@ class SplashView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/Logo.png',
+                    'assets/images/Logo.png',
                     width: MediaQuery.of(context).size.width * 0.4,
                   ),
                   const SizedBox(height: 20),

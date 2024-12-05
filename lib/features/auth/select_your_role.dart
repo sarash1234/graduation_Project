@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:graduation/core/routes/routes.dart';
 
 class RoleSelectionScreen extends StatefulWidget {
+  const RoleSelectionScreen({super.key});
+
   @override
   _RoleSelectionScreenState createState() => _RoleSelectionScreenState();
 }
@@ -15,7 +19,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {},
         ),
       ),
@@ -26,7 +30,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Select Your Role",
                   style: TextStyle(
                     fontSize: 24,
@@ -45,7 +49,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
               ],
             ),
             const SizedBox(height: 24),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 "Select Your Role:",
@@ -74,25 +78,26 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_selectedRole != null) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                            content: Text("Selected role: $_selectedRole")),
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Please select a role")),
-                      );
-                    }
+                    context.go(Routes.letsGetStarted);
+                    // if (_selectedRole != null) {
+                    //   ScaffoldMessenger.of(context).showSnackBar(
+                    //     SnackBar(
+                    //         content: Text("Selected role: $_selectedRole")),
+                    //   );
+                    // } else {
+                    //   ScaffoldMessenger.of(context).showSnackBar(
+                    //     const SnackBar(content: Text("Please select a role")),
+                    //   );
+                    // }
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                     backgroundColor: Colors.teal,
                   ),
-                  child: Text(
+                  child: const Text(
                     "Continue",
                     style: TextStyle(
                       fontSize: 16,
@@ -148,7 +153,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
             const SizedBox(width: 16),
             Text(
               role,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,

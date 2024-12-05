@@ -4,6 +4,8 @@ import 'package:graduation/core/routes/routes.dart';
 import 'package:graduation/features/splash_view.dart';
 
 class PhoneNumberVerifiedScreen extends StatelessWidget {
+  const PhoneNumberVerifiedScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

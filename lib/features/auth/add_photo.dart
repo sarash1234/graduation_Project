@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:graduation/core/routes/app_router.dart';
+import 'package:graduation/core/routes/routes.dart';
 
 class AddPhotoView extends StatelessWidget {
+  const AddPhotoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +84,9 @@ class AddPhotoView extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.go(Routes.login);
+              },
               child: Text(
                 'Skip',
                 style: TextStyle(

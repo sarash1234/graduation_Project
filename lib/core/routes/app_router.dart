@@ -10,6 +10,7 @@ import 'package:graduation/features/auth/reset_password.dart';
 import 'package:graduation/features/auth/select_your_role.dart';
 import 'package:graduation/features/auth/verify_email.dart';
 import 'package:graduation/features/lets_get_started.dart';
+import 'package:graduation/features/onboarding/on_boarding2_view.dart';
 import 'package:graduation/features/onboarding/on_boardinng_view.dart';
 import 'package:graduation/features/splash_view.dart';
 
@@ -20,16 +21,20 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
+      path: Routes.onboarding2,
+      builder: (context, state) => const OnboardingViewSecond(),
+    ),
+    GoRoute(
       path: Routes.onboarding,
       builder: (context, state) => const OnboardingView(),
     ),
     GoRoute(
       path: Routes.letsGetStarted,
-      builder: (context, state) => LetsGetStartedView(),
+      builder: (context, state) => const LetsGetStartedView(),
     ),
     GoRoute(
       path: Routes.addPhoto,
-      builder: (context, state) => AddPhotoView(),
+      builder: (context, state) => const AddPhotoView(),
     ),
     GoRoute(
       path: Routes.login,
@@ -45,23 +50,23 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.forgetPassword,
-      builder: (context, state) => ForgetPasswordScreen(),
+      builder: (context, state) => const ForgetPasswordScreen(),
     ),
     GoRoute(
       path: Routes.phoneNumberVerified,
-      builder: (context, state) => PhoneNumberVerifiedScreen(),
+      builder: (context, state) => const PhoneNumberVerifiedScreen(),
     ),
     GoRoute(
       path: Routes.resetPassword,
-      builder: (context, state) => ResetPasswordScreen(),
+      builder: (context, state) => const ResetPasswordScreen(),
     ),
     GoRoute(
       path: Routes.roleSelection,
-      builder: (context, state) => RoleSelectionScreen(),
+      builder: (context, state) => const RoleSelectionScreen(),
     ),
     GoRoute(
       path: Routes.verificationCode,
-      builder: (context, state) => VerificationCodeScreen(),
+      builder: (context, state) => const VerificationCodeScreen(),
     ),
   ],
 );

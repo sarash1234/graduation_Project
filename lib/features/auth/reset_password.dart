@@ -4,6 +4,8 @@ import 'package:graduation/core/routes/routes.dart';
 import 'package:graduation/features/splash_view.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
+  const ResetPasswordScreen({super.key});
+
   @override
   _ResetPasswordScreenState createState() => _ResetPasswordScreenState();
 }
@@ -121,6 +123,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                     ),
                     onPressed: () {
+                      context.go(Routes.phoneNumberVerified);
                       final password = _passwordController.text;
                       final confirmPassword = _confirmPasswordController.text;
 
