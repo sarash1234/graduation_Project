@@ -58,6 +58,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Example@gmail.com',
+                      hintStyle: TextStyle(color: Colors.grey),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -66,8 +67,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                             const BorderSide(color: Colors.teal, width: 2),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                      errorText:
-                          'Please input valid email. This email is invalid.',
+                      // errorText:
+                      //     'Please input valid email. This email is invalid.',
                     ),
                   ),
                 ],

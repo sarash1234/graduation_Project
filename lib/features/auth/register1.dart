@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class RegistreScreenFirst extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _phoneController = TextEditingController();
 
   RegistreScreenFirst({super.key});
 
@@ -32,22 +34,13 @@ class RegistreScreenFirst extends StatelessWidget {
               _buildPasswordField(),
               _buildDatePicker(context),
               _buildDropdown('Gender*', ['Male', 'Female']),
-              _buildTextField('Mobile Phone*', 'Enter your phone number'),
+              _buildPhoneField(),
               _buildDropdown(
-                  'Your Country',  [
-    'USA', 'Egypt', 'India', 'Canada', 'Germany', 'France', 'Italy', 
-    'UK', 'Australia', 'Brazil', 'Japan', 'China', 'South Korea', 
-    'Mexico', 'Russia', 'Spain', 'Turkey', 'South Africa', 'Argentina', 
-    'Saudi Arabia', 'Indonesia', 'Nigeria', 'Vietnam', 'Thailand', 
-    'Pakistan', 'Malaysia', 'Singapore', 'Philippines', 'United Arab Emirates', 
-    'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Lebanon', 'Iraq', 'Syria', 
-    'Tunisia', 'Algeria', 'Morocco', 'Kenya', 'Ethiopia', 'Chile', 
-    'Peru', 'Colombia', 'Uruguay', 'New Zealand', 'Poland', 'Ukraine', 
-    'Romania', 'Sweden', 'Norway', 'Finland', 'Denmark', 'Switzerland', 
-    'Netherlands', 'Belgium', 'Austria', 'Greece', 'Portugal', 'Czech Republic',
-    'Hungary', 'Slovakia', 'Croatia', 'Slovenia', 'Bulgaria', 'Serbia', 
-    'Macedonia', 'Montenegro', 'Albania', 'Georgia', 'Armenia', 'Kazakhstan'
-  ]),
+                'Your Country',
+                ['USA', 'Egypt', 'India', 'Canada', 'Germany', 'France', 'Italy', 'UK', 'Australia', 'Brazil', 'Japan', 'China',
+                  'South Korea','Mexico','Russia','Spain','Turkey','South Africa','Argentina','Saudi Arabia','Indonesia','Nigeria','Vietnam','Thailand','Pakistan','Malaysia','Singapore','Philippines','United Arab Emirates','Qatar','Kuwait','Bahrain','Jordan','Lebanon','Iraq','Syria','Tunisia','Algeria','Morocco','Kenya','Ethiopia','Chile','Peru','Colombia','Uruguay','New Zealand','Poland','Ukraine','Romania','Sweden','Norway','Finland','Denmark','Switzerland','Netherlands','Belgium','Austria','Greece','Portugal','Czech Republic','Hungary','Slovakia','Croatia','Slovenia','Bulgaria','Serbia','Macedonia','Montenegro','Albania','Georgia','Armenia','Kazakhstan',
+                ],
+              ),
               _buildTextField('Address', 'Enter your address'),
               const SizedBox(height: 20),
               Center(
@@ -58,7 +51,8 @@ class RegistreScreenFirst extends StatelessWidget {
                       if (_formKey.currentState!.validate()) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                              content: Text('Form submitted successfully')),
+                            content: Text('Form submitted successfully'),
+                          ),
                         );
                       }
                     },
@@ -91,6 +85,9 @@ class RegistreScreenFirst extends StatelessWidget {
         decoration: InputDecoration(
           labelText: label,
           hintText: hint,
+          hintStyle: TextStyle(
+          color: Colors.grey
+          ),
           border: const OutlineInputBorder(),
         ),
         validator: (value) {
@@ -114,6 +111,9 @@ class RegistreScreenFirst extends StatelessWidget {
         decoration: const InputDecoration(
           labelText: 'Password *',
           hintText: 'Enter your password',
+          hintStyle: TextStyle(
+            color: Colors.grey
+          ),
           border: OutlineInputBorder(),
           suffixIcon: Icon(Icons.visibility),
         ),
@@ -138,6 +138,9 @@ class RegistreScreenFirst extends StatelessWidget {
         decoration: const InputDecoration(
           labelText: 'Date Of Birth',
           hintText: 'Select date',
+          hintStyle: TextStyle(
+            color: Colors.grey
+          ),
           border: OutlineInputBorder(),
           suffixIcon: Icon(Icons.calendar_today),
         ),
@@ -169,14 +172,45 @@ class RegistreScreenFirst extends StatelessWidget {
         ),
         items: items
             .map((item) => DropdownMenuItem<String>(
-                  value: item,
-                  child: Text(item),
-                ))
+          value: item,
+          child: Text(item),
+        ))
             .toList(),
         onChanged: (value) {},
         validator: (value) {
           if (value == null || value.isEmpty) {
             return '$label is required';
+          }
+          return null;
+        },
+      ),
+    );
+  }
+
+  Widget _buildPhoneField() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: InternationalPhoneNumberInput(
+        onInputChanged: (PhoneNumber number) {
+          print(number.phoneNumber); // Access the phone number
+        },
+        onInputValidated: (bool value) {
+          print(value); // If the phone number is valid
+        },
+        selectorConfig: SelectorConfig(
+          selectorType: PhoneInputSelectorType.DIALOG,
+        ),
+        ignoreBlank: false,
+        autoValidateMode: AutovalidateMode.onUserInteraction,
+        selectorTextStyle: const TextStyle(color: Colors.black),
+        hintText: 'Enter your phone number',
+        inputDecoration: InputDecoration(
+          border: const OutlineInputBorder(),
+          labelText: 'Mobile Phone *',
+        ),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Phone number is required';
           }
           return null;
         },

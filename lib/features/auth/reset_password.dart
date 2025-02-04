@@ -62,6 +62,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 obscureText: !_isPasswordVisible,
                 decoration: InputDecoration(
                   hintText: "input password",
+                      hintStyle: TextStyle(color: Colors.grey),
+
                   suffixIcon: IconButton(
                     icon: Icon(
                       _isPasswordVisible
@@ -93,6 +95,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 obscureText: !_isConfirmPasswordVisible,
                 decoration: InputDecoration(
                   hintText: "input password",
+                      hintStyle: TextStyle(color: Colors.grey),
+
                   suffixIcon: IconButton(
                     icon: Icon(
                       _isConfirmPasswordVisible
